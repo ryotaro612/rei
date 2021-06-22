@@ -1,7 +1,32 @@
 \documentclass[lualatex,ja=standard]{beamer}
 \usepackage[noto-otf]{luatexja-preset}
+\usepackage{tikz} % tikzpictureを使うのに必要らしい
 \setmainjfont{Noto Sans CJK JP Regular}
-\title{はじめてのプログラミング}
+
+\definecolor{highlight}{HTML}{6DABE4}
+% transparentを扱えないらしい
+\definecolor{primary}{HTML}{040000}
+\definecolor{background}{HTML}{F2F1F1}
+
+% remove navigation symbols 
+\usenavigationsymbolstemplate{}
+
+\setbeamercolor{normal text}{fg=primary, bg=background}
+\setbeamertemplate{title page} {
+	\vspace{-10em}
+	\inserttitle
+	%\vspace*{10em}
+%  \begin{tikzpicture}
+%  \end{tikzpicture}
+%\begin{centering}
+%{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
+%\insertdate
+%\end{centering}
+}
+
+\title{余はいかにしてレッドコーダーとなりしかはじめてのプログラミング}
+\author{nryotaro}
+\institute{doge}
 \begin{document}
 \begin{frame}
 \titlepage
