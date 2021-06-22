@@ -1,6 +1,9 @@
-\documentclass[lualatex,ja=standard]{beamer}
+% unicodeはhyperrefへの指定らしい。unicodeはpdfのタイトルの文字化けをなくす
+\documentclass[unicode]{beamer} 
+% https://qiita.com/zr_tex8r/items/69e8cc32038ff29f5ac3
 \usepackage[noto-otf]{luatexja-preset}
-\usepackage{tikz} % tikzpictureを使うのに必要らしい
+%\usepackage{tikz} % tikzpictureを使うのに必要らしい
+% \renewcommand{\kanjifamilydefault}{\gtdefault}% 既定をゴシック体に <- 試していない
 \setmainjfont{Noto Sans CJK JP Regular}
 
 \definecolor{highlight}{HTML}{6DABE4}
@@ -24,7 +27,7 @@
 %\end{centering}
 }
 
-\title{余はいかにしてレッドコーダーとなりしかはじめてのプログラミング}
+\title{はじめてのプログラミング}
 \author{nryotaro}
 \institute{doge}
 \begin{document}
