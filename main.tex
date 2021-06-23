@@ -14,7 +14,16 @@
 \definecolor{background}{HTML}{F2F1F1}
 \definecolor{secondary}{HTML}{FFFFFF}
 
-\setbeamertemplate{section in toc}[sections numbered]
+%\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{section in toc}{
+  \inserttocsectionnumber.
+  \underline{\inserttocsection}
+}
+\setbeamertemplate{section in toc shaded}{
+  \inserttocsectionnumber.
+  \inserttocsection
+}
+
 
 
 % remove navigation symbols 
@@ -22,6 +31,7 @@
 % マージンの変え方 https://tex.stackexchange.com/questions/354022/modifying-the-margins-of-all-slides-in-beamer
 \setbeamercolor{normal text}{fg=primary, bg=background}
 \setbeamercolor{frametitle}{fg=secondary, bg=highlight}
+\setbeamercolor{section in toc}{fg=primary}
 \setbeamertemplate{title page} {
 	% 使えるフォントの種類 https://www.giss.nasa.gov/tools/latex/ltx-86.html
 	\vspace{9em}
@@ -54,6 +64,14 @@
   \end{beamercolorbox}
 }
 
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection, hideallsubsections]
+    \end{frame}
+}
+
 \title{はじめてのプログラミング}
 \author{nryotaro}
 \institute{doge}
@@ -61,16 +79,19 @@
 \begin{frame}
 \titlepage
 \end{frame}
-\section{dogeee}
-\begin{frame}{Table of contents}
+%\begin{frame}{Table of contents}
   % \setbeamertemplate{section in toc}[sections numbered]
   % \tableofcontents[hideallsubsections]
-  \tableofcontents[currentsection] % current sectionでsectionごとに目次を挟む?
-\end{frame}
+%  \tableofcontents[currentsection, hideallsubsections] % current sectionでsectionごとに目次を挟む?
+%\end{frame}
 \section{doge}
-\subsection{foobar}
 \begin{frame}
 \frametitle{素数てなに}
+doee
+\end{frame}
+\section{end of doge}
+\begin{frame}[t]
+\frametitle{dogeってなに}
 doee
 \end{frame}
 \end{document}
