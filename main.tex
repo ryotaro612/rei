@@ -1,7 +1,9 @@
 % unicodeはhyperrefへの指定らしい。unicodeはpdfのタイトルの文字化けをなくす
 \documentclass[unicode]{beamer} 
 % https://qiita.com/zr_tex8r/items/69e8cc32038ff29f5ac3
-\usepackage[noto-otf]{luatexja-preset}
+% usepackageとrequirepackageの違いはrequirePackageだとdocumentclassの前に書けることらしい
+% https://tex.stackexchange.com/questions/19919/whats-the-difference-between-requirepackage-and-usepackage
+\RequirePackage[noto-otf]{luatexja-preset}
 %\usepackage{tikz} % tikzpictureを使うのに必要らしい
 % \renewcommand{\kanjifamilydefault}{\gtdefault}% 既定をゴシック体に <- 試していない
 \setmainjfont{Noto Sans CJK JP Regular}
@@ -13,11 +15,24 @@
 
 % remove navigation symbols 
 \usenavigationsymbolstemplate{}
-
+% マージンの変え方 https://tex.stackexchange.com/questions/354022/modifying-the-margins-of-all-slides-in-beamer
 \setbeamercolor{normal text}{fg=primary, bg=background}
 \setbeamertemplate{title page} {
-	\vspace{-10em}
-	\inserttitle
+	% 使えるフォントの種類 https://www.giss.nasa.gov/tools/latex/ltx-86.html
+	\vspace{9em}
+	{\Large \inserttitle}
+	\par
+  \begin{flushright}
+  \vspace{8em}
+  \insertauthor%
+  \par%
+  \vspace*{0.25em}
+  \insertdate%
+  \par%
+  \end{flushright}
+	% \usebeamertemplate*{author}
+	% \usebeamertemplate*{date}
+	
 	%\vspace*{10em}
 %  \begin{tikzpicture}
 %  \end{tikzpicture}
@@ -25,6 +40,17 @@
 %{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
 %\insertdate
 %\end{centering}
+}
+
+\setbeamertemplate{author}{
+  \vspace*{2em}
+  \insertauthor%
+  \par%
+  \vspace*{0.25em}
+}
+\setbeamertemplate{date}{
+  \insertdate%
+  \par%
 }
 
 \title{はじめてのプログラミング}
