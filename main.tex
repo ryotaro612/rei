@@ -12,11 +12,16 @@
 % transparentを扱えないらしい
 \definecolor{primary}{HTML}{040000}
 \definecolor{background}{HTML}{F2F1F1}
+\definecolor{secondary}{HTML}{FFFFFF}
+
+\setbeamertemplate{section in toc}[sections numbered]
+
 
 % remove navigation symbols 
 \usenavigationsymbolstemplate{}
 % マージンの変え方 https://tex.stackexchange.com/questions/354022/modifying-the-margins-of-all-slides-in-beamer
 \setbeamercolor{normal text}{fg=primary, bg=background}
+\setbeamercolor{frametitle}{fg=secondary, bg=highlight}
 \setbeamertemplate{title page} {
 	% 使えるフォントの種類 https://www.giss.nasa.gov/tools/latex/ltx-86.html
 	\vspace{9em}
@@ -42,15 +47,11 @@
 %\end{centering}
 }
 
-\setbeamertemplate{author}{
-  \vspace*{2em}
-  \insertauthor%
-  \par%
-  \vspace*{0.25em}
-}
-\setbeamertemplate{date}{
-  \insertdate%
-  \par%
+\setbeamertemplate{frametitle}{
+  % htは高さ sepはパディング 0.5\paperwidthとかできるみたい ht, dp, sep
+  \begin{beamercolorbox}[wd=\paperwidth,dp=0.9em, ht=1.6em, leftskip=1em, rightskip=1em]{frametitle}
+    \insertframetitle
+  \end{beamercolorbox}
 }
 
 \title{はじめてのプログラミング}
@@ -60,7 +61,16 @@
 \begin{frame}
 \titlepage
 \end{frame}
+\section{dogeee}
+\begin{frame}{Table of contents}
+  % \setbeamertemplate{section in toc}[sections numbered]
+  % \tableofcontents[hideallsubsections]
+  \tableofcontents[currentsection] % current sectionでsectionごとに目次を挟む?
+\end{frame}
+\section{doge}
+\subsection{foobar}
 \begin{frame}
-\frametitle{What are Prime Numbers?}
+\frametitle{素数てなに}
+doee
 \end{frame}
 \end{document}
