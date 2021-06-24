@@ -1,3 +1,4 @@
+% cheat sheet http://www.hep.ph.ic.ac.uk/~bek07/Useful/Latex/Beamer-appearance-cheat-sheet.pdf
 % unicodeはhyperrefへの指定らしい。unicodeはpdfのタイトルの文字化けをなくす
 \documentclass[unicode]{beamer} 
 % https://qiita.com/zr_tex8r/items/69e8cc32038ff29f5ac3
@@ -56,7 +57,7 @@
 %\insertdate
 %\end{centering}
 }
-
+\setbeamersize{text margin left=1.2em,text margin right=1.2em} 
 \setbeamertemplate{frametitle}{
   % htは高さ sepはパディング 0.5\paperwidthとかできるみたい ht, dp, sep
   \begin{beamercolorbox}[wd=\paperwidth,dp=0.9em, ht=1.6em, leftskip=1em, rightskip=1em]{frametitle}
@@ -71,12 +72,15 @@
         \tableofcontents[currentsection, hideallsubsections]
     \end{frame}
 }
+\setbeamertemplate{footline}{
+  doge
+}
 
 \title{はじめてのプログラミング}
 \author{nryotaro}
 \institute{doge}
 \begin{document}
-\begin{frame}
+\begin{frame}[noframenumbering,plain]
 \titlepage
 \end{frame}
 %\begin{frame}{Table of contents}
