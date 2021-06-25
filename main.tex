@@ -24,9 +24,6 @@
   \inserttocsectionnumber.
   \inserttocsection
 }
-
-
-
 % remove navigation symbols 
 \usenavigationsymbolstemplate{}
 % マージンの変え方 https://tex.stackexchange.com/questions/354022/modifying-the-margins-of-all-slides-in-beamer
@@ -64,6 +61,7 @@
     \insertframetitle
   \end{beamercolorbox}
 }
+\setbeamertemplate{frametitle continuation}{}
 
 \AtBeginSection[]
 {
@@ -75,6 +73,7 @@
 \setbeamertemplate{footline}{
   \hfill\insertframenumber\hspace{0.05\paperwidth}\vspace{0.025\paperheight}
 }
+\setbeamertemplate{bibliography item}{\insertbiblabel}
 
 \title{はじめてのプログラミング}
 \author{nryotaro}
@@ -97,5 +96,12 @@ doee
 \begin{frame}[t]
 \frametitle{dogeってなに}
 doee
+\end{frame}
+\begin{frame}[allowframebreaks]
+  \frametitle{参考文献}
+  \bibliographystyle{plain}
+  \nocite{*} % citeされていないものも載せる
+\bibliography{main}
+
 \end{frame}
 \end{document}
