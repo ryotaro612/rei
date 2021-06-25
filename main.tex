@@ -1,106 +1,20 @@
-% cheat sheet http://www.hep.ph.ic.ac.uk/~bek07/Useful/Latex/Beamer-appearance-cheat-sheet.pdf
-% unicodeはhyperrefへの指定らしい。unicodeはpdfのタイトルの文字化けをなくす
+% unicodeはhyperrefへの指定らしい。unicodeはpdfのメタデータにあるタイトルの文字化けを防ぐ
 \documentclass[unicode, 12pt]{beamer} 
-% https://qiita.com/zr_tex8r/items/69e8cc32038ff29f5ac3
-% usepackageとrequirepackageの違いはrequirePackageだとdocumentclassの前に書けることらしい
-% https://tex.stackexchange.com/questions/19919/whats-the-difference-between-requirepackage-and-usepackage
-\RequirePackage[noto-otf]{luatexja-preset}
-%\usepackage{tikz} % tikzpictureを使うのに必要らしい
-% \renewcommand{\kanjifamilydefault}{\gtdefault}% 既定をゴシック体に <- 試していない
-\setmainjfont{Noto Sans CJK JP Regular}
-
-\definecolor{highlight}{HTML}{6DABE4}
-% transparentを扱えないらしい
-\definecolor{primary}{HTML}{040000}
-\definecolor{background}{HTML}{F2F1F1}
-\definecolor{secondary}{HTML}{FFFFFF}
-
-%\setbeamertemplate{section in toc}[sections numbered]
-\setbeamertemplate{section in toc}{
-  \inserttocsectionnumber.
-  \underline{\inserttocsection}
-}
-\setbeamertemplate{section in toc shaded}{
-  \inserttocsectionnumber.
-  \inserttocsection
-}
-% remove navigation symbols 
-\usenavigationsymbolstemplate{}
-% マージンの変え方 https://tex.stackexchange.com/questions/354022/modifying-the-margins-of-all-slides-in-beamer
-\setbeamercolor{normal text}{fg=primary, bg=background}
-\setbeamercolor{frametitle}{fg=secondary, bg=highlight}
-\setbeamercolor{section in toc}{fg=primary}
-\setbeamertemplate{title page} {
-	% 使えるフォントの種類 https://www.giss.nasa.gov/tools/latex/ltx-86.html
-	\vspace{9em}
-	{\Large \inserttitle}
-	\par
-  \begin{flushright}
-  \vspace{8em}
-  \insertauthor%
-  \par%
-  \vspace*{0.25em}
-  \insertdate%
-  \par%
-  \end{flushright}
-	% \usebeamertemplate*{author}
-	% \usebeamertemplate*{date}
-	
-	%\vspace*{10em}
-%  \begin{tikzpicture}
-%  \end{tikzpicture}
-%\begin{centering}
-%{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
-%\insertdate
-%\end{centering}
-}
-\setbeamersize{text margin left=1.2em,text margin right=1.2em} 
-\setbeamertemplate{frametitle}{
-  % htは高さ sepはパディング 0.5\paperwidthとかできるみたい ht, dp, sep
-  \begin{beamercolorbox}[wd=\paperwidth,dp=0.9em, ht=1.6em, leftskip=1em, rightskip=1em]{frametitle}
-    \insertframetitle
-  \end{beamercolorbox}
-}
-\setbeamertemplate{frametitle continuation}{}
-
-\AtBeginSection[]
-{
-    \begin{frame}
-        \frametitle{Table of Contents}
-        \tableofcontents[currentsection, hideallsubsections]
-    \end{frame}
-}
-\setbeamertemplate{footline}{
-  \hfill\insertframenumber\hspace{0.05\paperwidth}\vspace{0.025\paperheight}
-}
-\setbeamertemplate{bibliography item}{\insertbiblabel}
-\setbeamercolor{bibliography entry author}{fg=primary}
-\setbeamercolor{bibliography entry title}{fg=primary}
-\setbeamercolor{bibliography entry location}{fg=primary}
-\setbeamercolor{bibliography entry note}{fg=primary}
-\setbeamercolor{bibliography item}{fg=primary}
-
-\setbeamerfont{bibliography entry author}{size=\footnotesize}
-\setbeamerfont{bibliography entry title}{size=\footnotesize}
-\setbeamerfont{bibliography entry location}{size=\footnotesize}
-\setbeamerfont{bibliography entry note}{size=\footnotesize}
-\setbeamerfont{bibliography item}{size=\footnotesize}
-
 \usepackage{listings}
 \usepackage{bussproofs}
+\usepackage[backend=biber, style=ieee]{biblatex}
+\usepackage{kinkyohime}
+\addbibresource{main.bib}
 \title{はじめてのプログラミング}
 \author{nryotaro}
-\institute{doge}
 \begin{document}
-\begin{frame}[noframenumbering,plain]
+
+\begin{frame}[noframenumbering, plain]
 \titlepage
 \end{frame}
-%\begin{frame}{Table of contents}
-  % \setbeamertemplate{section in toc}[sections numbered]
-  % \tableofcontents[hideallsubsections]
-%  \tableofcontents[currentsection, hideallsubsections] % current sectionでsectionごとに目次を挟む?
-%\end{frame}
+
 \section{doge}
+
 \begin{frame}
 \frametitle{素数てなに}
 doee\cite{doge0}
@@ -109,6 +23,7 @@ doee\cite{doge0}
  \zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s}
 \end{equation}
 \end{frame}
+
 \begin{frame}
   \frametitle{foobar}
   \begin{prooftree}
@@ -116,7 +31,9 @@ doee\cite{doge0}
     \UnaryInfC{$\Phi$}
   \end{prooftree}
 \end{frame}
+
 \section{end of doge}
+
 \begin{frame}[t, fragile]
 \frametitle{dogeってなに}
 {\small 
@@ -130,11 +47,12 @@ doee\cite{doge0}
 \end{lstlisting}
 }
 \end{frame}
+
 \begin{frame}[allowframebreaks]
   \frametitle{参考文献}
-  \bibliographystyle{plain}
-  \nocite{*} % citeされていないものも載せる
-\bibliography{main}
-
+  \printbibliography
+  % 引用していないbibファイルの要素も記載する
+  \nocite{*} 
 \end{frame}
+
 \end{document}

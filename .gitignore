@@ -1,3 +1,4 @@
+# tex
 *.aux
 *.fdb_latexmk
 *.fls
@@ -8,3 +9,12 @@
 *.toc
 *.vrb
 main.pdf
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.synctex.gz
+
+# vscode
+.vscode
+

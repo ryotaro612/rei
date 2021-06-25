@@ -1,0 +1,90 @@
+% cheat sheet http://www.hep.ph.ic.ac.uk/~bek07/Useful/Latex/Beamer-appearance-cheat-sheet.pdf
+
+% Font
+
+% usepackageとrequirepackageの違いはrequirePackageだとdocumentclassの前に書けることらしい
+% https://tex.stackexchange.com/questions/19919/whats-the-difference-between-requirepackage-and-usepackage
+\RequirePackage[noto-otf]{luatexja-preset}
+\setmainjfont{Noto Sans CJK JP Regular}
+
+% Color
+
+% 透明度を設定できないらしい
+\definecolor{highlight}{HTML}{6DABE4}
+\definecolor{primary}{HTML}{040000}
+\definecolor{background}{HTML}{F2F1F1}
+\definecolor{secondary}{HTML}{FFFFFF}
+
+% Frame
+
+\setbeamercolor{normal text}{fg=primary, bg=background}
+\setbeamercolor{frametitle}{fg=secondary, bg=highlight}
+% ページの左右のマージン
+\setbeamersize{text margin left=0.05\paperwidth,text margin right=0.05\paperwidth} 
+\setbeamertemplate{frametitle}{
+  \begin{beamercolorbox}[wd=\paperwidth,dp=0.05\paperheight, ht=0.09\paperheight, leftskip=0.05\paperwidth, rightskip=0.05\paperwidth]{frametitle}
+    \insertframetitle
+  \end{beamercolorbox}
+}
+% ページをまたぐ場合に、表題の末尾にインデックスをつけない
+\setbeamertemplate{frametitle continuation}{}
+
+% Title page
+
+\setbeamertemplate{title page} {
+  \vspace{0.4\paperheight}
+  {\Large \inserttitle}
+  \par
+  \vspace{0.3\paperheight}
+  \begin{flushright}
+    \insertauthor
+    \par
+    \vspace{0.020\paperheight}
+    \insertdate
+    \par
+  \end{flushright}
+}
+
+% Table of contents
+
+\setbeamercolor{section in toc}{fg=primary}
+\setbeamertemplate{section in toc}{
+  \inserttocsectionnumber.
+  \underline{\inserttocsection}
+}
+\setbeamertemplate{section in toc shaded}{
+  \inserttocsectionnumber.
+  \inserttocsection
+}
+% セクションのはじまりに目次ページを挿入する
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Contents}
+        \tableofcontents[currentsection, hideallsubsections]
+    \end{frame}
+}
+
+% Footnote
+
+\setbeamertemplate{footline}{
+  \hfill\insertframenumber\hspace{0.05\paperwidth}
+  \vspace{0.025\paperheight}
+}
+% remove navigation symbols 
+\usenavigationsymbolstemplate{}
+
+
+% Bibliography
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamercolor{bibliography entry author}{fg=primary}
+\setbeamercolor{bibliography entry title}{fg=primary}
+\setbeamercolor{bibliography entry location}{fg=primary}
+\setbeamercolor{bibliography entry note}{fg=primary}
+\setbeamercolor{bibliography item}{fg=primary}
+\setbeamerfont{bibliography entry author}{size=\footnotesize}
+\setbeamerfont{bibliography entry title}{size=\footnotesize}
+\setbeamerfont{bibliography entry location}{size=\footnotesize}
+\setbeamerfont{bibliography entry note}{size=\footnotesize}
+\setbeamerfont{bibliography item}{size=\footnotesize}
