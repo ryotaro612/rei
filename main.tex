@@ -1,6 +1,6 @@
 % cheat sheet http://www.hep.ph.ic.ac.uk/~bek07/Useful/Latex/Beamer-appearance-cheat-sheet.pdf
 % unicodeはhyperrefへの指定らしい。unicodeはpdfのタイトルの文字化けをなくす
-\documentclass[unicode]{beamer} 
+\documentclass[unicode, 12pt]{beamer} 
 % https://qiita.com/zr_tex8r/items/69e8cc32038ff29f5ac3
 % usepackageとrequirepackageの違いはrequirePackageだとdocumentclassの前に書けることらしい
 % https://tex.stackexchange.com/questions/19919/whats-the-difference-between-requirepackage-and-usepackage
@@ -86,7 +86,8 @@
 \setbeamerfont{bibliography entry note}{size=\footnotesize}
 \setbeamerfont{bibliography item}{size=\footnotesize}
 
-
+\usepackage{listings}
+\usepackage{bussproofs}
 \title{はじめてのプログラミング}
 \author{nryotaro}
 \institute{doge}
@@ -103,14 +104,31 @@
 \begin{frame}
 \frametitle{素数てなに}
 doee\cite{doge0}
+ねこ
 \begin{equation}
  \zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s}
 \end{equation}
 \end{frame}
+\begin{frame}
+  \frametitle{foobar}
+  \begin{prooftree}
+    \AxiomC{$(\Phi \land \Psi)$}
+    \UnaryInfC{$\Phi$}
+  \end{prooftree}
+\end{frame}
 \section{end of doge}
-\begin{frame}[t]
+\begin{frame}[t, fragile]
 \frametitle{dogeってなに}
-doee
+{\small 
+\begin{lstlisting}[language=html]
+<html>
+    <head>
+        <title>Hello</title>
+    </head>
+    <body>Hello</body>
+</html>
+\end{lstlisting}
+}
 \end{frame}
 \begin{frame}[allowframebreaks]
   \frametitle{参考文献}
