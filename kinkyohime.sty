@@ -4,8 +4,19 @@
 
 % usepackageとrequirepackageの違いはrequirePackageだとdocumentclassの前に書けることらしい
 % https://tex.stackexchange.com/questions/19919/whats-the-difference-between-requirepackage-and-usepackage
-\RequirePackage[noto-otf]{luatexja-preset}
-\setmainjfont{Noto Sans CJK JP Regular}
+\RequirePackage{luatexja-preset}
+\RequirePackage{unicode-math}
+\setmainjfont{Noto Sans CJK JP Regular}[
+  BoldFont = NotoSansCJKjp-Bold
+]
+\setmainfont{Roboto Regular}
+\setsansfont{Roboto Regular}[
+  BoldFont = Roboto-Bold,
+  ItalicFont = Roboto-Italic
+]
+%\setmonofont{SourceHanCodeJP-Regular}[Scale=MatchLowercase]
+\setmonofont{SourceHanCodeJP-Regular}
+\setmathfont{STIX2Math.otf}
 
 % Color
 
@@ -57,12 +68,11 @@
   \inserttocsection
 }
 % セクションのはじまりに目次ページを挿入する
-\AtBeginSection[]
-{
-    \begin{frame}
-        \frametitle{Contents}
-        \tableofcontents[currentsection, hideallsubsections]
-    \end{frame}
+\AtBeginSection[]{
+  \begin{frame}
+    \frametitle{Contents}
+    \tableofcontents[currentsection, hideallsubsections]
+  \end{frame}
 }
 
 % Footnote
@@ -73,7 +83,6 @@
 }
 % remove navigation symbols 
 \usenavigationsymbolstemplate{}
-
 
 % Bibliography
 
