@@ -1,11 +1,11 @@
-% unicodeはhyperrefへの指定らしい。unicodeはpdfのメタデータにあるタイトルの文字化けを防ぐ
+% unicodeは、hyperrefへの指定で、pdfのメタデータにあるタイトルの文字化けを防ぐ
 \documentclass[unicode, 12pt]{beamer} 
 \usepackage{listings}
 \usepackage{bussproofs}
 \usepackage[backend=biber, style=ieee]{biblatex}
-\usepackage{kinkyohime}
-\addbibresource{main.bib}
-\title{はじめてのプログラミング}
+\usepackage{rei}
+\addbibresource{demo.bib}
+\title{はじめてのbeamer}
 \author{nryotaro}
 \begin{document}
 
@@ -13,10 +13,13 @@
 \titlepage
 \end{frame}
 
-\section{doge}
+\section{フォント}
 
 \begin{frame}
-\frametitle{素数てなに}
+\frametitle{使用されているフォント}
+\begin{itemize}
+  \item Noto Sans CJK JP
+\end{itemize}
 dogee\cite{doge0}
 \textbf{hoge}
 \texttt{doge}
