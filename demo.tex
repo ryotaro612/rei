@@ -1,5 +1,5 @@
 % unicodeは、hyperrefへの指定で、pdfのメタデータにあるタイトルの文字化けを防ぐ
-\documentclass[unicode, 12pt]{beamer} 
+\documentclass[unicode, 14pt]{beamer} 
 \usepackage{listings}
 \usepackage{bussproofs}
 \usepackage[backend=biber, style=ieee]{biblatex}
@@ -12,50 +12,65 @@
 \begin{frame}[noframenumbering, plain]
 \titlepage
 \end{frame}
+\section{特徴}
+\begin{frame}[t]
+  \frametitle{特徴}
+  単純なスライドにした。
+  \vspace{0.2\paperheight}
+  \begin{itemize}
+    \item 右下のnavigationを無効化
+    \item 各セクションの先頭に自動で目次を挿入
+    \item frameが複数のスライドにまたいでも\\タイトルの末尾に番号をつけない
+  \end{itemize}
+\end{frame}
 
 \section{フォント}
 
 \begin{frame}
-\frametitle{使用されているフォント}
+\frametitle{採用したフォント}
 \begin{itemize}
+  \item Roboto
   \item Noto Sans CJK JP
+  \item Source Han Code JP
+  \item STIX2
 \end{itemize}
-dogee\cite{doge0}
-\textbf{hoge}
-\texttt{doge}
-\textit{doge}
-ねこ
-\begin{equation}
- \zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s}
-\end{equation}
+\end{frame}
+
+\section{デモ}
+
+\begin{frame}
+  \frametitle{数式の例}
+  \begin{equation}
+    e^{i\theta} = \cos\theta + i\sin \theta
+  \end{equation}
 \end{frame}
 
 \begin{frame}
-  \frametitle{foobar}
+  \frametitle{導出木の例}
   \begin{prooftree}
-    \AxiomC{$(\Phi \land \Psi)$}
-    \UnaryInfC{$\Phi$}
+    \AxiomC{$P \to Q$}
+    \AxiomC{$P$}
+    \BinaryInfC{$Q$}
   \end{prooftree}
 \end{frame}
 
-\section{end of doge}
+\begin{frame}[fragile]
+\frametitle{コード}
+  {\small 
+    \begin{lstlisting}[language=C++]
+#include<bits/stdc++.h>
+using namespace std;
 
-\begin{frame}[t, fragile]
-\frametitle{dogeってなに}
-{\small 
-\begin{lstlisting}[language=html]
-<html>
-    <head>
-        <title>Hello</title>
-    </head>
-    <body>Hello</body>
-</html>
-\end{lstlisting}
+int main() {
+  cout << "Hello World!" << endl;
+  return 0;
+}
+    \end{lstlisting}
 }
 \end{frame}
 
 \begin{frame}[allowframebreaks]
-  \frametitle{参考文献}
+  \frametitle{参考文献の表示例}
   \printbibliography
   % 引用していないbibファイルの要素も記載する
   \nocite{*} 
