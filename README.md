@@ -4,5 +4,5 @@
 
 ## ビルド
 
-    latexmk demo.tex
+    latexmk -gg -pdflua
 
