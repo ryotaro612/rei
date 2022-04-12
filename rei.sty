@@ -4,16 +4,13 @@
 
 % usepackageとrequirepackageの違いはrequirePackageだとdocumentclassの前に書けることらしい
 % https://tex.stackexchange.com/questions/19919/whats-the-difference-between-requirepackage-and-usepackage
-% \RequirePackage[noto-otf,match]{luatexja-preset}
-\RequirePackage[hiragino-pron]{luatexja-preset}
+\RequirePackage[hiragino-pron,match]{luatexja-preset}
+%\RequirePackage[match]{luatexja-preset}
 \RequirePackage{unicode-math}
-\renewcommand\kanjifamilydefault{\gtdefault}
+\renewcommand{\kanjifamilydefault}{\gtdefault}
 \renewcommand\familydefault{\sfdefault}
-\setmainfont{Roboto Regular}
-\setsansfont{Roboto Regular}[
-  BoldFont = Roboto-Bold,
-  ItalicFont = Roboto-Italic
-]
+\setmainfont{Helvetica Neue}
+\setsansfont{Helvetica Neue}
 % なぜかsetmonojfontを使えない
 \setmonojfont{SourceHanCodeJP-Regular}
 \setmonofont{SourceHanCodeJP-Regular}
