@@ -4,17 +4,20 @@
 
 % usepackageとrequirepackageの違いはrequirePackageだとdocumentclassの前に書けることらしい
 % https://tex.stackexchange.com/questions/19919/whats-the-difference-between-requirepackage-and-usepackage
-\RequirePackage[hiragino-pron,match]{luatexja-preset}
+% presetはワーニングがでる
 %\RequirePackage[match]{luatexja-preset}
+\RequirePackage[match]{luatexja-fontspec}
 \RequirePackage{unicode-math}
-\renewcommand{\kanjifamilydefault}{\gtdefault}
-\renewcommand\familydefault{\sfdefault}
+% すべてをゴシック体にするオプション。代わりにmainjfontをゴシック体にした。
+%\renewcommand{\kanjifamilydefault}{\gtdefault}
+%\renewcommand\familydefault{\sfdefault}
 \setmainfont{Helvetica Neue}
+\setmainjfont{Hiragino Sans}
+%\setsansjfont{Hiragino Sans}
 \setsansfont{Helvetica Neue}
 % なぜかsetmonojfontを使えない
-\setmonojfont{SourceHanCodeJP-Regular}
-\setmonofont{SourceHanCodeJP-Regular}
-% \setmathfont{STIX2Math.otf}
+%\setmonojfont{SourceHanCodeJP}
+\setmonofont{SourceHanCodeJP}
 \setmathfont{STIXTwoMath}
 
 % Color
