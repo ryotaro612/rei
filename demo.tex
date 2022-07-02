@@ -1,10 +1,9 @@
 % unicodeは、hyperrefへの指定で、pdfのメタデータにあるタイトルの文字化けを防ぐ
 \documentclass[unicode, 14pt]{beamer} 
 \usepackage{listings}
-\usepackage{bookmark}
 \usepackage{bussproofs}
 \usepackage[backend=biber, style=ieee]{biblatex}
-\usepackage{rei}
+\usetheme{rikako}
 \addbibresource{demo.bib}
 \title{はじめて beamer}
 \author{nryotaro}
@@ -19,21 +18,22 @@
     単純なスライドにした。\textit{abc}
   \vspace{0.2\paperheight}
   \begin{itemize}
-    \item 右下のnavigationを無効化
+    \item 右下のnavigationを無効化\href{https://google.com}{doge}
     \item 各セクションの先頭に自動で目次を挿入
     \item frameが複数のスライドにまたいでも\\タイトルの末尾に番号をつけない
   \end{itemize}
 \end{frame}
 
-\section{フォント}
+% \section{フォント}
 
 \begin{frame}
 \frametitle{採用したフォント}
 \begin{itemize}
-  \item Roboto
-  \item Noto Sans CJK JP
-  \item Source Han Code JP
-  \item STIX2
+\item ヒラギノ
+\item Helvetica Neue
+\item Source Han Code JP
+\item JetBrains Mono
+\item STIX2
 \end{itemize}
 \end{frame}
 
@@ -42,7 +42,7 @@
 \begin{frame}
   \frametitle{数式の例}
   \begin{equation}
-    e^{i\theta} = \cos\theta + i\sin \theta
+    e^{i\theta} = \cos\theta + i\sin \theta \mathrm{sin}
   \end{equation}
 \end{frame}
 
@@ -73,7 +73,7 @@ int main() {
 \begin{frame}[allowframebreaks]
   \frametitle{参考文献の表示例}
   \printbibliography
-  % 引用していないbibファイルの要素も記載する
+  % 引用していないbibファイルの要素も記載する  
   \nocite{*} 
 \end{frame}
 

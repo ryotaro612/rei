@@ -18,3 +18,7 @@ demo.pdf
 # vscode
 .vscode
 
+
+# Emacs
+*~
+*\#
