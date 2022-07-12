@@ -1,5 +1,4 @@
 % Title page
-
 \setbeamertemplate{title page} {
   \vspace{0.4\paperheight}
   {\Large \inserttitle}
@@ -48,6 +47,8 @@
 
 % 図や表の見出しにcaption: やimage: をつけない
 \setbeamertemplate{caption}{\insertcaption}
+% キャプションと図や表の間隔を小くする 0ptでもくっつかない
+\setlength{\abovecaptionskip}{0pt} 
 
 % href
 \newcommand{\colorhref}[2]{\href{#1}{\color{link}{#2}}}
