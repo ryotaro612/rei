@@ -19,7 +19,7 @@
 \setbeamercolor{section in toc}{fg=primary}
 \setbeamertemplate{section in toc}{
   \inserttocsectionnumber.
-  \underline{\inserttocsection}
+  \textbf{\inserttocsection}
 }
 \setbeamertemplate{section in toc shaded}{
   \inserttocsectionnumber.
@@ -48,6 +48,9 @@
 
 % 図や表の見出しにcaption: やimage: をつけない
 \setbeamertemplate{caption}{\insertcaption}
+
+% href
+\newcommand{\colorhref}[2]{\href{#1}{\color{highlight}{#2}}}
 
 % Bibliography
 \setbeamertemplate{bibliography item}{\insertbiblabel}
